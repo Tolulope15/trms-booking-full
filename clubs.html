@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>After-school clubs | The Rock Montessori School</title>
+  <meta name="theme-color" content="#1f5a2c">
+  <link rel="icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <img class="logo" id="logo" src="logo.png" alt="" width="64" height="64" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'logo',textContent:'R'}))">
+      <div><b id="school">The Rock Montessori School</b><span id="event">After-school clubs</span></div>
+    </div>
+  </header>
+
+  <main class="wrap page" id="app">
+    <div id="loading" class="panel narrow">Loading the club list…</div>
+    <section id="notice" class="panel closedmsg narrow" hidden></section>
+
+    <section id="chooser" class="narrow" hidden>
+      <div class="intro"><h1>Choose a club sign-up</h1><p>Pick the sign-up you want to fill in.</p></div>
+      <div id="termCards"></div>
+    </section>
+
+    <div id="form" class="cols" hidden>
+      <div class="side">
+        <section class="intro">
+          <h1 id="termTitle">After-school activities</h1>
+          <p>Add each child, choose their class, then pick <b>one activity for each day</b>, or <b>None</b> if they will not stay that day. Your bill is created straight away and emailed to you.</p>
+          <span class="when" id="termWhen" hidden></span>
+          <button class="linkbtn plain" id="changeTerm" type="button" hidden>Choose a different sign-up</button>
+        </section>
+        <section class="panel">
+          <h2>Your details</h2>
+          <div class="grid2">
+            <div class="full"><label for="pname">Parent or guardian name</label><input type="text" id="pname" autocomplete="name"></div>
+            <div><label for="pemail">Email</label><input type="email" id="pemail" autocomplete="email" inputmode="email"><p class="hint">Your bill is sent here.</p></div>
+            <div><label for="pphone">Phone number</label><input type="tel" id="pphone" autocomplete="tel" inputmode="tel"></div>
+          </div>
+        </section>
+      </div>
+      <div class="mainc">
+        <div id="kids"></div>
+        <button class="addkid" id="addKid" type="button">Add another child</button>
+        <div class="error" id="err" role="alert" hidden></div>
+      </div>
+    </div>
+
+    <section id="done" class="done narrow" hidden></section>
+  </main>
+
+  <div class="bar" id="bar" hidden>
+    <div class="wrap">
+      <div class="pick-list" id="totalText"><span class="none">Nothing chosen yet</span></div>
+      <button class="primary" id="confirm" type="button">Confirm and get bill</button>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="clubs-api.js"></script>
+  <script src="clubs.js"></script>
+</body>
+</html>

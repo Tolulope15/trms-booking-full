@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin | TRMS bookings</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="login" class="login panel">
+    <img src="logo.png" alt="" width="72" height="72" style="object-fit:contain;display:block;margin:0 auto 10px" onerror="this.remove()">
+    <h2>Admin sign in</h2>
+    <p class="hint" style="margin-bottom:12px">Enter the admin passcode to see bookings.</p>
+    <label for="pass">Passcode</label>
+    <input type="password" id="pass" autocomplete="current-password">
+    <div class="error" id="loginErr" hidden></div>
+    <p style="margin-top:14px"><button class="primary" id="go" type="button" style="width:100%">Open dashboard</button></p>
+  </div>
+
+  <div id="dash" class="admin-wrap" hidden>
+    <nav class="modnav" aria-label="Sections"><a href="admin.html" aria-current="page">Parent meetings</a><a href="admin-clubs.html">After-school clubs</a></nav>
+    <div class="adminhead">
+      <img src="logo.png" alt="" width="56" height="56" style="object-fit:contain" onerror="this.remove()">
+      <div class="eventpick">
+        <label for="eventSel">Event</label>
+        <select id="eventSel"></select>
+      </div>
+      <button class="secondary" id="newEvent" type="button">New event</button>
+    </div>
+    <h1 id="title"></h1>
+    <p class="hint" id="sub"></p>
+
+    <div id="viewer">
+      <div class="toolbar">
+        <button class="secondary" id="refresh" type="button">Refresh</button>
+        <button class="secondary" id="xlsx" type="button">Download Excel</button>
+        <button class="primary" id="print" type="button">Print all classes</button>
+        <span class="spacer"></span>
+        <span class="hint" id="stats"></span>
+      </div>
+      <div class="tabs" id="tabs" role="tablist"></div>
+      <div class="tablewrap" id="tablewrap" style="margin-top:12px"><table id="tbl" class="rt"></table></div>
+    </div>
+    <div id="settingsBox" class="settings" hidden></div>
+  </div>
+
+  <dialog id="moveDlg"></dialog>
+
+  <div id="printArea"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="config.js"></script>
+  <script src="api.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

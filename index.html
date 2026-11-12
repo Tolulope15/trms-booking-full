@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a teacher meeting | The Rock Montessori School</title>
+  <meta name="theme-color" content="#1f5a2c">
+  <link rel="icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <img class="logo" id="logo" src="logo.png" alt="" width="64" height="64" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'logo',textContent:'R'}))">
+      <div><b id="school">The Rock Montessori School</b><span id="event">Parent and teacher meetings</span></div>
+    </div>
+  </header>
+
+  <main class="wrap page" id="app">
+    <div id="loading" class="panel narrow">Loading available times…</div>
+    <section id="notice" class="panel closedmsg narrow" hidden></section>
+
+    <section id="chooser" class="narrow" hidden>
+      <div class="intro"><h1>Choose a meeting day</h1><p>Pick the day you want to book. Each day has its own times.</p></div>
+      <div id="eventCards"></div>
+    </section>
+
+    <div id="form" class="cols" hidden>
+      <div class="side">
+        <section class="intro">
+          <h1>Book a <span id="len">10</span>-minute meeting with your child's teacher</h1>
+          <p>Add each child, choose their class, then pick a time. A time you pick disappears for every other parent.</p>
+          <span class="when" id="when"></span>
+          <span class="closes" id="closes"></span>
+          <button class="linkbtn plain" id="changeEvent" type="button" hidden>Choose a different day</button>
+        </section>
+        <section class="panel">
+          <h2>Your details</h2>
+          <div class="grid2">
+            <div class="full"><label for="pname">Parent or guardian name</label><input type="text" id="pname" autocomplete="name"></div>
+            <div><label for="pemail">Email</label><input type="email" id="pemail" autocomplete="email" inputmode="email"><p class="hint">Your confirmation is sent here.</p></div>
+            <div><label for="pphone">Phone number</label><input type="tel" id="pphone" autocomplete="tel" inputmode="tel"></div>
+          </div>
+        </section>
+      </div>
+      <div class="mainc">
+        <div id="kids"></div>
+        <button class="addkid" id="addKid" type="button">Add another child</button>
+        <div class="error" id="err" role="alert" hidden></div>
+      </div>
+    </div>
+
+    <section id="done" class="done narrow" hidden></section>
+  </main>
+
+  <div class="bar" id="bar" hidden>
+    <div class="wrap">
+      <div class="pick-list" id="picks"></div>
+      <button class="primary" id="confirm" type="button">Confirm booking</button>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="api.js"></script>
+  <script src="parent.js"></script>
+  <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function () {});</script>
+</body>
+</html>
